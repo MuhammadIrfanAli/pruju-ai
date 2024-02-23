@@ -3,11 +3,18 @@ import requests
 import pandas as pd
 from urllib.request import urlretrieve
 from dotenv import load_dotenv
+
 load_dotenv(".moodle")
 
-def ws_fn_call(endpoint=os.getenv("WS_ENDPOINT"), courseid=os.getenv("COURSE_ID"), token=os.getenv("WS_TOKEN"), fn="core_course_get_contents"):
+
+def ws_fn_call(
+    endpoint=os.getenv("WS_ENDPOINT"),
+    courseid=os.getenv("COURSE_ID"),
+    token=os.getenv("WS_TOKEN"),
+    fn="core_course_get_contents",
+):
     """Run a Moodle Webservice API call.
-    
+
     This function allows simple API calls via the Webservice API.
 
     Args:
@@ -30,67 +37,75 @@ def ws_fn_call(endpoint=os.getenv("WS_ENDPOINT"), courseid=os.getenv("COURSE_ID"
     }
 
     # HTTP request
-    response = requests.post(endpoint,data)
-    if response.status_code==200:
+    response = requests.post(endpoint, data)
+    if response.status_code == 200:
         return response
     else:
-        raise Exception(f"Request failed with status code: {response.status_code}: {response.text}")
-    
-def ws_return_announcements(endpoint=os.getenv("WS_ENDPOINT"), courseid=os.getenv("COURSE_ID"), token=os.getenv("WS_TOKEN")):
-    
-    posts = pd.DataFrame(columns=['Subject', 'URL', 'Message', 'Modified'])
-    
+        raise Exception(
+            f"Request failed with status code: {response.status_code}: {response.text}"
+        )
+
+
+def ws_return_announcements(
+    endpoint=os.getenv("WS_ENDPOINT"),
+    courseid=os.getenv("COURSE_ID"),
+    token=os.getenv("WS_TOKEN"),
+):
+
+    posts = pd.DataFrame(columns=["Subject", "URL", "Message", "Modified"])
+
     fn = "mod_forum_get_forums_by_courses"
 
     data = {
-        "courseids[0]": courseid, 
+        "courseids[0]": courseid,
         "wstoken": token,
         "wsfunction": fn,
         "moodlewsrestformat": "json",
     }
 
     forumid = 0
-    forums = requests.post(endpoint,data).json()
+    forums = requests.post(endpoint, data).json()
     for forum in forums:
-        if (forum.get('type')=="news"):
-            forumid=forum.get('id')
+        if forum.get("type") == "news":
+            forumid = forum.get("id")
 
-    if forumid==0:
+    if forumid == 0:
         print("Unable to find forums. Returning None.")
         return None
 
     fn = "mod_forum_get_forum_discussions"
 
     data = {
-        "forumid": forumid, 
+        "forumid": forumid,
         "wstoken": token,
         "wsfunction": fn,
         "moodlewsrestformat": "json",
     }
 
-    response = requests.post(endpoint,data).json()
-    discussions = response.get('discussions',[])
+    response = requests.post(endpoint, data).json()
+    discussions = response.get("discussions", [])
     for discussion in discussions:
         fn = "mod_forum_get_discussion_posts"
         data = {
-            "discussionid": discussion.get('discussion'), 
+            "discussionid": discussion.get("discussion"),
             "wstoken": token,
             "wsfunction": fn,
             "moodlewsrestformat": "json",
         }
-        discussion_posts = requests.post(endpoint,data).json().get('posts',[])
+        discussion_posts = requests.post(endpoint, data).json().get("posts", [])
         for post in discussion_posts:
-            subject=post['subject']
-            message=post['message']
-            url=post['urls']['view']
-            modified=post['timemodified']
-            posts.loc[len(posts)]=[subject,url,message, modified]
+            subject = post["subject"]
+            message = post["message"]
+            url = post["urls"]["view"]
+            modified = post["timemodified"]
+            posts.loc[len(posts)] = [subject, url, message, modified]
 
-    return(posts)
+    return posts
+
 
 def ws_create_file_list(response: requests.Response, token=os.getenv("WS_TOKEN")):
     """Create file list from Moodle Webservice core_course_get_contents response.
-    
+
     This function create a file list from Moodle Webservice API response object.
 
     Args:
@@ -100,24 +115,34 @@ def ws_create_file_list(response: requests.Response, token=os.getenv("WS_TOKEN")
         pandas DataFrame
     """
     # Initialize dataframe for metadata
-    file_data = pd.DataFrame(columns=['Filename','User URL','Download URL', 'Modified'])
+    file_data = pd.DataFrame(
+        columns=["Filename", "User URL", "Download URL", "Modified"]
+    )
 
-    response=response.json()
+    response = response.json()
     for section in response:
-        for module in section.get('modules', []):
-            if module.get('modplural','')=='Files' or module.get('modplural','')=='Folders':
-                module_name = module.get('name','')
-                module_url = module.get('url','')          
-                for content in module.get('contents', []):
-                    item_name = module_name+"->"+content.get('filename','')
-                    file_data.loc[len(file_data)] = [item_name,module_url,content.get('fileurl', '')+"&token="+token, content.get('timemodified', '')]
+        for module in section.get("modules", []):
+            if (
+                module.get("modplural", "") == "Files"
+                or module.get("modplural", "") == "Folders"
+            ):
+                module_name = module.get("name", "")
+                module_url = module.get("url", "")
+                for content in module.get("contents", []):
+                    item_name = module_name + "->" + content.get("filename", "")
+                    file_data.loc[len(file_data)] = [
+                        item_name,
+                        module_url,
+                        content.get("fileurl", "") + "&token=" + token,
+                        content.get("timemodified", ""),
+                    ]
 
     return file_data
 
 
 def ws_files_todisk(df: pd.DataFrame, save_location=os.getenv("WS_STORAGE")):
     """Save Moodle files to disk.
-    
+
     This function downloads files based on a file list and saves them to disk.
 
     Args:
@@ -131,54 +156,62 @@ def ws_files_todisk(df: pd.DataFrame, save_location=os.getenv("WS_STORAGE")):
     if save_dir is None:
         print("No save folder determined. Exiting.")
         return False
-    if os.path.isdir(save_dir)==False:
+    if os.path.isdir(save_dir) == False:
         os.mkdir(save_dir)
 
     for index, row in df.iterrows():
-        urlretrieve(row['Download URL'],save_location+"/"+row['Filename'])
+        urlretrieve(row["Download URL"], save_location + "/" + row["Filename"])
 
     return True
 
-if __name__=="__main__":
-    resp=ws_fn_call()
-    df=ws_create_file_list(resp)
+
+if __name__ == "__main__":
+    resp = ws_fn_call()
+    df = ws_create_file_list(resp)
     ws_files_todisk(df)
-    posts=ws_return_announcements()
+    posts = ws_return_announcements()
 
     filenames = []
-    for file in df['Filename']:
-        file = os.getenv("WS_STORAGE")+"/"+file
+    for file in df["Filename"]:
+        file = os.getenv("WS_STORAGE") + "/" + file
         filenames.append(file)
-    
-    from read_to_vectorstore import convert_files_totext, create_chunck_dataframe, create_vector_store
+
+    from read_to_vectorstore import (
+        convert_files_totext,
+        create_chunck_dataframe,
+        create_vector_store,
+    )
+
     texts = convert_files_totext(filenames)
 
-    material_headings = df['Filename'] + ", " + df['User URL']
+    material_headings = df["Filename"] + ", " + df["User URL"]
     material_headings = material_headings.tolist()
 
     chunk_df = create_chunck_dataframe(material_headings, texts)
-    chunk_df['Modified'] = df['Modified']
-    
+    chunk_df["Modified"] = df["Modified"]
+
     # print(posts)
     if posts is not None:
-        post_headings = "Announcements->" + posts['Subject'] + ", " + posts['URL']
-        post_chunk_df = create_chunck_dataframe(post_headings,posts['Message'])
-        post_chunk_df['Modified'] = posts['Modified']
-        chunk_df = pd.concat([chunk_df,post_chunk_df],ignore_index=True)
+        post_headings = "Announcements->" + posts["Subject"] + ", " + posts["URL"]
+        post_chunk_df = create_chunck_dataframe(post_headings, posts["Message"])
+        post_chunk_df["Modified"] = posts["Modified"]
+        chunk_df = pd.concat([chunk_df, post_chunk_df], ignore_index=True)
 
-    vector_store_type=os.getenv("VECTOR_STORE")
-    if vector_store_type=="qdrant":
-        vector_store=create_vector_store(chunk_df,
-                                store_type="qdrant",
-                                metadatas=True,
-                                vector_store_endpoint=os.getenv("VECTOR_STORE_ENDPOINT"),
-                                vector_store_api_key=os.getenv("VECTOR_STORE_API_KEY"), 
-                                vector_store_collection_name=os.getenv("VECTOR_STORE_COLLECTION"))
+    vector_store_type = os.getenv("VECTOR_STORE")
+    if vector_store_type == "qdrant":
+        vector_store = create_vector_store(
+            chunk_df,
+            store_type="qdrant",
+            metadatas=True,
+            vector_store_endpoint=os.getenv("VECTOR_STORE_ENDPOINT"),
+            vector_store_api_key=os.getenv("VECTOR_STORE_API_KEY"),
+            vector_store_collection_name=os.getenv("VECTOR_STORE_COLLECTION"),
+        )
     else:
-        vector_store = create_vector_store(chunk_df,store_type="faiss", metadatas=True)
-        vector_store_dir = os.getenv("WS_STORAGE")+"_vdb"
-        if os.path.isdir(vector_store_dir)==False:
-            os.mkdir(vector_store_dir)    
+        vector_store = create_vector_store(chunk_df, store_type="faiss", metadatas=True)
+        vector_store_dir = os.getenv("WS_STORAGE") + "_vdb"
+        if os.path.isdir(vector_store_dir) == False:
+            os.mkdir(vector_store_dir)
 
         vector_store.save_local(vector_store_dir)
 
@@ -191,4 +224,3 @@ if __name__=="__main__":
     except Exception as e:
         print(f"An error occurred when performing a query: {e}")
         exit(1)
-
