@@ -42,7 +42,10 @@ with gr.Blocks(theme=customtheme,
     gr.Markdown(value=chat_footer)  
     gr.Examples(examples=examples,inputs=query)
     query.submit(fn=call_chat, inputs=[query, chatbot], outputs=[query, chatbot])
-    submit_button.click(fn=call_chat, inputs=[query, chatbot], outputs=[query, chatbot])
+    submit_button.click(fn=call_chat,
+                        concurrency_limit=int(os.getenv("MAX_CONCURRENCY")),
+                        inputs=[query, chatbot], 
+                        outputs=[query, chatbot])
 
 if __name__ == "__main__":
     print("Launching Demo\n")
@@ -50,8 +53,7 @@ if __name__ == "__main__":
     isDocker = os.path.exists("/.dockerenv")
     print(f"Docker: {isDocker}\n")
     
-    demo.queue(concurrency_count=int(os.getenv("MAX_CONCURRENCY")),
-               max_size=int(os.getenv("MAX_QUEUE")))
+    demo.queue(max_size=int(os.getenv("MAX_QUEUE")))
     demo.launch(server_name="0.0.0.0" if isDocker else "127.0.0.1", 
                 root_path="/prujuai",show_api=False,
                 favicon_path=os.getenv("CHAT_DATA_FOLDER")+"/favicon.ico")
