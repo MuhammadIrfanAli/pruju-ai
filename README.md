@@ -72,15 +72,27 @@ MODEL_NAME="mistral"
 
 In the case of Ollama, you need to  install Ollama and run `ollama serve <modelname>` to serve the model to `127.0.0.1:11434`. Only Mistral 7B has been tested so far. The basic functionality works, but is not extensively tested.
 
-# Launch the app
+# Launch the app on Local Machine
 
 Run:
 
 ```bash
 gradio app.py
 ```
-
 Once the app is running, it will tell you the address where you can find the chatbot interface.
+
+# Launch the app in Docker Container
+
+1. Navigate to the root folder of the application where the Dockerfile is located.
+2. Build a Pruju Image
+    ```bash
+    docker build -t pruju-app .
+    ```
+3. Run the Docker Container
+    ```bash
+    docker run -p 7860:7860 -v "$(pwd)":/app pruju-app
+    ```
+4. View the app by navigating to http://localhost:7860/ in your browser.
 
 # Bring your own course materials
 
