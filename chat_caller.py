@@ -14,8 +14,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 isDocker = os.path.exists("/.dockerenv")
-if isDocker:
-    os.environ["CHAT_DATA_FOLDER"] = "/" + os.getenv("CHAT_DATA_FOLDER")
+
 
 from chat_utils import purge_memory, token_counter
 
