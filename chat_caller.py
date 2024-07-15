@@ -163,7 +163,7 @@ print("System instruction template:\n" + system_instruction_template)
 
 # Main chat caller function
 
-def query_gpt_chat(query: str, history):
+def query_gpt_chat(query: str, history, is_api=False):
     max_tokens=int(os.getenv("MAX_PROMPT_TOKENS"))
     # Check quota status and update model accordingly
     daily_calls_sum = check_quota_status()
@@ -216,6 +216,8 @@ def query_gpt_chat(query: str, history):
         logger.info(query_statistics)
         
         results_content = results.content
+
+
     else:
         # debug mode:
         results_content = context

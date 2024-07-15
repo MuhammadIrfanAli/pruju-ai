@@ -13,7 +13,6 @@ RUN pip install -r requirements.txt
 # Make port 80 available to the world outside this container
 EXPOSE 7860
 
-# Make the start script executable
 
 # Run the start script
 CMD [".docker/start.sh"]
