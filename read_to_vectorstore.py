@@ -99,6 +99,52 @@ def create_vector_store(df,
         return None
     return vector_store
 
+def add_files_to_vector_store(file_directory, vector_store_dir, vector_store_type="faiss", metadatas=False, vector_store_endpoint=None, vector_store_api_key=None, vector_store_collection_name=None):
+    if vector_store_type == "faiss":
+        vector_store = FAISS.load_local(vector_store_dir, HuggingFaceInstructEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2"))
+        print(f"Number of vectors before adding new resources: {vector_store.index.ntotal}")
+    elif vector_store_type == "qdrant":
+        vector_store = Qdrant(
+            url=vector_store_endpoint,
+            prefer_grpc=True,
+            api_key=vector_store_api_key,
+            collection_name=vector_store_collection_name,
+        )
+        print(f"Number of vectors before adding new resources: {vector_store.count()}")
+    else:
+        print("Unsupported vector store type.")
+        return
+
+    filenames = read_filenames_from_directory(file_directory)
+    material_headings = create_material_headings_from_filenames(filenames, file_directory)
+    texts = convert_files_totext(filenames)
+    new_df = create_chunck_dataframe(material_headings, texts)
+
+    master_chunk = []
+    master_metadata = []
+    for i, row in new_df.iterrows():
+        master_chunk += row['Text_Splitted_w_Headings']
+        if metadatas:
+            for text_in_row in row['Text_Splitted_w_Headings']:
+                master_metadata.append(row[['Heading', 'Modified']].to_dict())
+
+    embeddings = HuggingFaceInstructEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    new_vectors = embeddings.embed_documents(master_chunk)
+    if vector_store_type == "faiss":
+        if metadatas:
+            vector_store.add_texts(master_chunk, metadatas=master_metadata)
+        else:
+            vector_store.add_texts(master_chunk)
+        vector_store.save_local(vector_store_dir)
+        print(f"Number of vectors after adding new resources: {vector_store.index.ntotal}")
+    elif vector_store_type == "qdrant":
+        vector_store.add_texts(master_chunk, embeddings, metadatas=master_metadata if metadatas else None)
+        print(f"Number of vectors after adding new resources: {vector_store.count()}")
+
+    print("New resources added to the vector store successfully.")
+
+
+
 def main():
 
     # Scan files from the course_material directory (or alternative)
@@ -208,5 +254,9 @@ if __name__ == "__main__":
     parser.add_argument('-u','--use_defaults',action='store_true', help="Run the script with sensible defaults.",required=False)
     args = parser.parse_args()
     df = main()
+
+				    # Example usage to add new files to vector store
+    new_material_directory = "new_materials" 
+    add_files_to_vector_store(new_material_directory, "course_material_vdb")
 
 
