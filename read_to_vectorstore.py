@@ -249,14 +249,21 @@ def main():
 
 if __name__ == "__main__":
     parser=argparse.ArgumentParser(description="Read course materials and save to vector store.")
+    parser.add_argument('file_directory', help="Directory containing the files to add.")
+    parser.add_argument('vector_store_dir', help="Directory where the vector store is saved.")
     parser.add_argument('-d','--load_dir',help="Directory for the course materials. ",required=False, default="course_material")
     parser.add_argument('-s','--save_dir',help="Directory to save the vector store.",required=False, default="course_material_vdb")
     parser.add_argument('-u','--use_defaults',action='store_true', help="Run the script with sensible defaults.",required=False)
     args = parser.parse_args()
+    add_files_to_vector_store(
+        args.file_directory,
+        args.vector_store_dir
+    )
+
     df = main()
 
-				    # Example usage to add new files to vector store
+		    # Example usage to add new files to vector store
     new_material_directory = "new_materials" 
-    add_files_to_vector_store(new_material_directory, "course_material_vdb")
+    add_files_to_vector_store("new_materials" , "course_material_vdb")
 
 
