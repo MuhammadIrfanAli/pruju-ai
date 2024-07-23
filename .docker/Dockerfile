@@ -15,4 +15,4 @@ EXPOSE 7860
 
 
 # Run the start script
-CMD [".docker/start.sh"]
+CMD ["sh", ".docker/start.sh"]

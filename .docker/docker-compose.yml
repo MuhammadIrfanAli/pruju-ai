@@ -1,10 +1,8 @@
-version: '3.8'
-
 services:
   prujuai:
     build:
       context: ../
-      dockerfile: Dockerfile
+      dockerfile: .docker/Dockerfile
     ports:
       - "7860:7860"
       - "6500:6500"
