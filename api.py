@@ -32,14 +32,15 @@ async def create_upload_file(file: UploadFile = File(...)):
 @app_fastapi.post("/chat")
 async def chat_endpoint(query: dict = Body(...)):
     
+    messages = query['messages']
+    message = messages[len(messages) - 1]["content"]
     content =  query_gpt_chat(
-        query['messages'][0]["content"],
+        message,
         [msg["content"] for msg in query['messages'][:]],
         is_api=True
     )[1]
-    print("Message", query['messages'][0]["content"])
+
     print("Content", content)
-    # content = gpt_response[1]["content"]
     return  {
         "id": "chatcmpl-9ZLqvFsD54kds0X0TID3PEmHWArwl",
         "object": "chat.completion",
