@@ -162,6 +162,16 @@ The project is currently in a working demo state, with loads of room for improve
 - _Support for alternative LLMs_: The app was originally designed to run with OpenAI's ChatGPT, but because the app uses lanchain to make the API calls, it can be integrated with many other LLMs with relative ease.
 - _(Better) integration with Moodle and other platforms_: For example, using Google Drive, OneDrive, Dropbox for files would be convenient.
 
+
+# Run the API
+
+```
+uvicorn app:app --reload 
+```
+
 # Acknowledgements
 
 [Enrico Glerean](https://github.com/eglerean) provided invaluable advice on many aspects of the project. [Thomas Pfau](https://github.com/tpfau) contributed code and provided many crucial technical insights along the way.
+
+
+- uvicorn api.main:app --host 0.0.0.0 --port 8001 --reload
