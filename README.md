@@ -6,7 +6,7 @@ The project exists to make creating virtual teaching assistants as easy as possi
 
 The app can be configured to work with the teacher's own materials without any coding. You do need to modify some text files and run one Python script to make it your own. You can also use the code as a starting point for more sophisticated and customized setups. If your course uses Moodle, you can now import data from your own course!
 
-The app works with OpenAI's API, Microsoft's Azure OpenAI Service and Ollama. Ollama supports a wider range of open-source models (e.g., Mistral 7B, Llama 2). Only Mistral 7B has been tested.
+The app works with OpenAI's API, Microsoft's Azure OpenAI Service, and Ollama. Ollama supports a wider range of open-source models (e.g., Mistral 7B, Llama 2). Only Mistral 7B has been tested.
 
 _Pruju is Finnish university slang for a study handout. According to the (Finnish) [Urban Dictionary](https://urbaanisanakirja.com/word/pruju/), prujus "can range in quality from a good book [...] to a pile of cryptic lecture slides that make no sense whatsoever."_
 
@@ -29,7 +29,7 @@ You should create a .env file that contains at least the following:
 LLM_PROVIDER="openai"
 MODEL_NAME="gpt-4"
 # Directory for your course data:
-CHAT_DATA_FOLDER ="prujuai_resources" 
+CHAT_DATA_FOLDER="prujuai_resources"
 # Total model call quota:
 TOTAL_MODEL_QUOTA=5
 # Max number of tokens per call
@@ -56,10 +56,10 @@ If you choose azure, you must define the API endpoint and API key:
 ```
 LLM_PROVIDER="azure"
 MODEL_NAME="gpt-4"
-OPENAI_API_KEY = "your-secret-key-goes-here" 
+OPENAI_API_KEY="your-secret-key-goes-here"
 MODEL_ENDPOINT="https://your-azure-endpoint"
 # Optionally, you can define:
-AZURE_OPENAI_CUSTOM_BACKEND = "/custom/url/back/end/other/than/chat/completions"
+AZURE_OPENAI_CUSTOM_BACKEND="/custom/url/back/end/other/than/chat/completions"
 AZURE_OPENAI_CUSTOM_HEADER="Some-Custom-Authentication-Header"
 ```
 
@@ -70,35 +70,42 @@ LLM_PROVIDER="ollama"
 MODEL_NAME="mistral"
 ```
 
-In the case of Ollama, you need to  install Ollama and run `ollama serve <modelname>` to serve the model to `127.0.0.1:11434`. Only Mistral 7B has been tested so far. The basic functionality works, but is not extensively tested.
+In the case of Ollama, you need to install Ollama and run `ollama serve <modelname>` to serve the model to `127.0.0.1:11434`. Only Mistral 7B has been tested so far. The basic functionality works, but is not extensively tested.
 
-# Launch the app on Local Machine
+# Launch the app
+
+## On Local Machine
 
 Run:
 
 ```bash
 gradio app.py
 ```
+
 Once the app is running, it will tell you the address where you can find the chatbot interface.
 
-# Launch the app in Docker Container
+## In Docker Container
 
 1. Navigate to the root folder of the application where the Dockerfile is located.
-2. Build a Pruju Image
-    ```bash
-    docker build -t pruju-app .
-    ```
-3. Run the Docker Container
-    ```bash
-    docker run -p 7860:7860 -v "$(pwd)":/app pruju-app
-    ```
+2. Build a Pruju Image:
+
+   ```bash
+   docker build -t pruju-app .
+   ```
+
+3. Run the Docker Container:
+
+   ```bash
+   docker run -p 7860:7860 -v "$(pwd)":/app pruju-app
+   ```
+
 4. View the app by navigating to http://localhost:7860/ in your browser.
 
 # Bring your own course materials
 
 ## The basics
 
-To get started, create a copy of the `prujuai_resources` directory and give it a name that you like (e.g., `mycourse_resources`) Then modify the .env file so that the app knows where to look for the files (e.g. `CHAT_DATA_FOLDER="mycourse_resources"`). In this new directory, modify the following files to your liking:
+To get started, create a copy of the `prujuai_resources` directory and give it a name that you like (e.g., `mycourse_resources`). Then modify the .env file so that the app knows where to look for the files (e.g., `CHAT_DATA_FOLDER="mycourse_resources"`). In this new directory, modify the following files to your liking:
 
 - `prompt_template.txt` provides the general system instructions for the chatbot
 - `examples_ui.txt` defines the examples that help the user start asking useful questions
@@ -118,11 +125,33 @@ The script will read your course materials from a given location (`./course_mate
 python3 read_to_vectorstore.py -h
 ```
 
-The default course materials are from an imaginary course called _Primer on Business Analytics with Python_, produced with the help of ChatGPT (GPT-4) for demonstration purposes. The example materials (`course_materials`) include lecture slides, lecture transcripts and Python scripting tutorials.
+The default course materials are from an imaginary course called _Primer on Business Analytics with Python_, produced with the help of ChatGPT (GPT-4) for demonstration purposes. The example materials (`course_materials`) include lecture slides, lecture transcripts, and Python scripting tutorials.
+
+## Adding New Materials via API
+
+You can also add new course materials directly through the API. Use the /uploadfile/ endpoint to upload new files, which will then be processed and added to the vector store using the `add_files_to_vector_store` method
+
+Here is an example of how to use this endpoint:
+
+```
+curl -X POST "http://localhost:6500/uploadfile/" -H "accept: application/json" -H "Content-Type: multipart/form-data" -F "file=@path_to_your_file"
+
+```
+
+## Adding New Materials Locally
+
+The `add_files_to_vector_store` function is designed to add new course materials to an existing vector store. This function supports both FAISS and Qdrant vector store types.
+
+Here is an example of how to use this function:
+
+```
+python3 read_to_vectorstore.py <file_directory> <vector_store_dir>
+
+```
 
 ## Moodle integration
 
-_Please think carefully what data you (don't) want your app to have access to!_ 
+_Please think carefully about what data you (don't) want your app to have access to!_
 
 You can import the materials from a Moodle instance. Create a file called `.moodle` and modify it to contain the following things:
 
@@ -132,13 +161,14 @@ WS_TOKEN="your-token"
 WS_ENDPOINT="https://your-moodle-instance.edu/webservice/rest/server.php"
 WS_STORAGE="moodle_data"
 ```
-Running the `moodle.py` script will download files (from _File_ and _Folder_ resources) from your course, as well as posts from the _Announcements_ forum. The script will by default embed the contents in a FAISS vector store in a directory specified in the `WS_STORAGE` environment variable, followed by "`_vdb`" (e.g., `moode_data_vdb`).
+
+Running the `moodle.py` script will download files (from _File_ and _Folder_ resources) from your course, as well as posts from the _Announcements_ forum. The script will by default embed the contents in a FAISS vector store in a directory specified in the `WS_STORAGE` environment variable, followed by "`_vdb`" (e.g., `moodle_data_vdb`).
 
 ```bash
 python3 moodle.py
 ```
 
-You can then copy the `index.faiss` and `index.pkl` files to your course material folder (`CHAT_DATA_FOLDER/faiss_index`). The script also includes Moodle links to the text chucks consumed by the vector store, so it's advisable to add something like this to the system prompt: `Make sure to include hyperlinks to allow easy access to the materials.` This allows the user to easily navigate to see the original content on Moodle. Make sure that the access token is associated with the appropriate permissions on the Moodle end.
+You can then copy the `index.faiss` and `index.pkl` files to your course material folder (`CHAT_DATA_FOLDER/faiss_index`). The script also includes Moodle links to the text chunks consumed by the vector store, so it's advisable to add something like this to the system prompt: `Make sure to include hyperlinks to allow easy access to the materials.` This allows the user to easily navigate to see the original content on Moodle. Make sure that the access token is associated with the appropriate permissions on the Moodle end.
 
 ## Qdrant vector database
 
@@ -151,15 +181,15 @@ VECTOR_STORE_ENDPOINT="localhost" #"localhost" or hosted service endpoint
 VECTOR_STORE_API_KEY="your-secret" # If you use qdrant's hosted service
 ```
 
-If you're importing your course materials from Moodle using `moodle.py`, add the above lines to your `.moodle` too. You can consider running the Moodle import script periodically to keep the chatbot's knowledge base up-to-date. Again, _please be mindful of premissions on the Moodle end_.
+If you're importing your course materials from Moodle using `moodle.py`, add the above lines to your `.moodle` too. You can consider running the Moodle import script periodically to keep the chatbot's knowledge base up-to-date. Again, _please be mindful of permissions on the Moodle end_.
 
 # Project status
 
-The project is currently in a working demo state, with loads of room for improvement. Some possible directions for further development: 
+The project is currently in a working demo state, with loads of room for improvement. Some possible directions for further development:
 
-- _New features_: Alternative assistance modes (e.g., simple Q&A, prepping for exam, reflective discussions), a user interface for no-code chatbot customization à la OpenAI's GPT Builder.
+- _New features_: Alternative assistance modes (e.g., simple Q&A, prepping for exams, reflective discussions), a user interface for no-code chatbot customization à la OpenAI's GPT Builder.
 - _Technical improvements_: The app has not been tested or optimized for large use volumes.
-- _Support for alternative LLMs_: The app was originally designed to run with OpenAI's ChatGPT, but because the app uses lanchain to make the API calls, it can be integrated with many other LLMs with relative ease.
+- _Support for alternative LLMs_: The app was originally designed to run with OpenAI's ChatGPT, but because the app uses langchain to make the API calls, it can be integrated with many other LLMs with relative ease.
 - _(Better) integration with Moodle and other platforms_: For example, using Google Drive, OneDrive, Dropbox for files would be convenient.
 
 
