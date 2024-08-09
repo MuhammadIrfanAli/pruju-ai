@@ -157,9 +157,15 @@ else:
     print("Vector store not identified. Exiting.")
     exit(1)
 
-def reload_vector_store():
+def reload_vector_store(model_name="sentence-transformers/all-MiniLM-L6-v2"):
     global vector_store
-    vector_store = FAISS.load_local(os.getenv("CHAT_DATA_FOLDER")+"/faiss_index", HuggingFaceInstructEmbeddings(cache_folder=os.getenv("MODEL_CACHE"), model_name="sentence-transformers/all-MiniLM-L6-v2"))
+    vector_store = FAISS.load_local(
+        os.getenv("CHAT_DATA_FOLDER")+"/faiss_index",
+        HuggingFaceInstructEmbeddings(
+            cache_folder=os.getenv("MODEL_CACHE"),
+            model_name=model_name
+        )
+    )
 
 
 instruction_file = open(str(os.getenv("CHAT_DATA_FOLDER"))+"/prompt_template.txt",'r')
