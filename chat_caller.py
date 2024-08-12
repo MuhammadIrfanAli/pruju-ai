@@ -13,8 +13,6 @@ import httpx
 from dotenv import load_dotenv 
 load_dotenv()
 isDocker = os.path.exists("/.dockerenv")
-if isDocker:
-    os.environ["CHAT_DATA_FOLDER"] = "/"+os.getenv("CHAT_DATA_FOLDER")
 
 from chat_utils import purge_memory, token_counter
 
@@ -159,13 +157,24 @@ else:
     print("Vector store not identified. Exiting.")
     exit(1)
 
+def reload_vector_store(model_name="sentence-transformers/all-MiniLM-L6-v2"):
+    global vector_store
+    vector_store = FAISS.load_local(
+        os.getenv("CHAT_DATA_FOLDER")+"/faiss_index",
+        HuggingFaceInstructEmbeddings(
+            cache_folder=os.getenv("MODEL_CACHE"),
+            model_name=model_name
+        )
+    )
+
+
 instruction_file = open(str(os.getenv("CHAT_DATA_FOLDER"))+"/prompt_template.txt",'r')
 system_instruction_template = instruction_file.read()
 print("System instruction template:\n" + system_instruction_template)
 
 # Main chat caller function
 
-def query_gpt_chat(query: str, history):
+def query_gpt_chat(query: str, history, is_api=False):
     max_tokens=int(os.getenv("MAX_PROMPT_TOKENS"))
     # Check quota status and update model accordingly
     daily_calls_sum = check_quota_status()
@@ -218,6 +227,8 @@ def query_gpt_chat(query: str, history):
         logger.info(query_statistics)
         
         results_content = results.content
+
+
     else:
         # debug mode:
         results_content = context

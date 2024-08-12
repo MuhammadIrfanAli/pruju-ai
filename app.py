@@ -1,6 +1,5 @@
 from dotenv import load_dotenv
 load_dotenv()
-
 import gradio as gr
 from chat_caller import query_gpt_chat, check_quota_status, choose_model
 from chat_utils import read_course_assets
@@ -8,13 +7,13 @@ import os
 
 from brand_theming import customtheme
 
-def call_chat(query, chat_history):
+def call_chat(query, chat_history, is_api=False):
     # unpack history
     chat_history_unpacked = []
     for x in chat_history:
         for y in x:
             chat_history_unpacked.append(y)
-    chat_engine, answer = query_gpt_chat(query,chat_history_unpacked)
+    chat_engine, answer = query_gpt_chat(query,chat_history_unpacked, is_api)
     chat_history.append((query, answer))
     return "", chat_history
 
@@ -49,9 +48,15 @@ if __name__ == "__main__":
     server_name = "127.0.0.1"
     isDocker = os.path.exists("/.dockerenv")
     print(f"Docker: {isDocker}\n")
+
+    demo.queue(
+        concurrency_count=int(os.getenv("MAX_CONCURRENCY")),
+        max_size=int(os.getenv("MAX_QUEUE"))
+    )
+    demo.launch(
+        server_name="0.0.0.0" if isDocker else "127.0.0.1", 
+        root_path="/prujuai", show_api=True,
+        favicon_path=os.getenv("CHAT_DATA_FOLDER")+"/favicon.ico"
+    )
     
-    demo.queue(concurrency_count=int(os.getenv("MAX_CONCURRENCY")),
-               max_size=int(os.getenv("MAX_QUEUE")))
-    demo.launch(server_name="0.0.0.0" if isDocker else "127.0.0.1", 
-                root_path="/prujuai",show_api=False,
-                favicon_path=os.getenv("CHAT_DATA_FOLDER")+"/favicon.ico")
+    

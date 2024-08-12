@@ -1,0 +1,535 @@
+ques_id,context,question,answer,source_doc,Model,Answer Relevance,Answer Relevance - Reason,Faithfulness,Faithfulness - Reason,Contextual Relevancy,Contextual Relevancy - Reason
+Q1,"- **AI Chatbot**: An AI chatbot is available for student queries. This chatbot is designed to answer frequently asked questions and provide clarifications on course materials, allowing students to get instant support.
+
+- **Attendance**: Attendance is not compulsory but is encouraged. While all lectures are recorded, attending in-person offers the benefit of immediate clarification of doubts and interactive learning.
+
+- **Development Environment**: Students can use the provided Jupyter Notebook servers or their own development environment. This flexibility ensures that students can work in an environment they are comfortable with, further enhancing the learning experience.","What is the purpose of the AI chatbot in the business analytics course?
+","The AI chatbot is designed to answer frequently asked questions and provide clarifications on course materials, allowing students to get instant support.",course_material/general/syllabus.md,sentence-transformers/all-MiniLM-L6-v2,0.75,"The score is 0.75 because the answer mostly addresses the purpose of the AI chatbot in the business analytics course, but includes an irrelevant statement about additional resources that does not directly answer the question.",1.0,The score is 1.00 because there are no contradictions between the actual output and retrieval context. Good job!,1.0,The score is 1.00 because there were no reasons found indicating the retrieval context was irrelevant to the input. Great job!
+Q2,"Primer on Business Analytics with Python
+Module 5: Basic Text Analytics
+Introduction
+
+- Text analytics deals with deriving meaningful information from textual data.- In business, text analytics can be used for customer sentiment analysis, keyword extraction, and more.
+Learning Objectives
+
+- Learn basic techniques for text analytics.- Understand how to apply text analytics in a business context.
+Basic Techniques in Text Analytics
+
+- Text Preprocessing: Tokenization, stemming, etc.- Text Vectorization: Count vectorization, TF-IDF.- Sentiment Analysis: Determining the sentiment expressed in text.
+Applications in Business
+
+- Customer Feedback Analysis: Understanding customer sentiments.- Keyword Extraction: Identifying important topics in customer reviews.- Chatbot Training: Training intelligent chatbots to handle customer queries.
+Summary
+
+- We covered basic techniques in text analytics and their applications in business.- Tools like Python's NLTK and scikit-learn can be used for text analytics.
+Focus Areas in Text Analytics
+
+- Topic Identification: Understanding the main topics in a text.- Sentiment Analysis: Determining the sentiment expressed in text.- Keyword-based Analysis: Identifying important keywords for sentiment analysis.
+Advanced Techniques (Outside Scope)
+
+- Named Entity Recognition (NER): Identifying entities like names, locations, etc.- Text Summarization: Generating a summary of large texts.- These techniques are mentioned for awareness but are outside the course scope.","What are the basic techniques in text analytics covered in Module 5 of the Business Analytics with Python course?
+","The basic techniques in text analytics covered are Text Preprocessing, Text Vectorization, and Sentiment Analysis.",course_material/module 5/lecture slides.pptx,sentence-transformers/all-MiniLM-L6-v2,1.0,The score is 1.00 because the output is fully relevant to the input with no irrelevant statements.,0.8666666666666667,"The score is 0.87 because the actual output inaccurately labels 'Topic Identification' and 'Keyword-based Analysis' as basic techniques in text analytics within Module 5 of the Business Analytics with Python course, whereas the retrieval context identifies them as focus areas, not basic techniques.",1.0,"The score is 1.00 because the retrieval context perfectly aligns with the provided input, discussing the basic techniques in text analytics covered in Module 5 of the Business Analytics with Python course. Way to go!"
+Q3,"Primer on Business Analytics 
+with Python
+Module 2: Basic Statistical Tests and 
+Regression Analysis
+Introduction
+- Statistical tests and regression analysis are vital tools in data science.
+- They are key in hypothesis testing, understanding relationships, and making prediction
+- This module will cover basic statistical tests like t-test, ANOVA, and introduce regressio
+Learning Objectives
+- Understand the basics of hypothesis testing.
+- Learn how to perform a t-test and ANOVA in Python.
+- Get introduced to linear regression and understand its applications.
+Hypothesis Testing
+- Hypothesis testing is a method for testing a claim or hypothesis about a parameter in a
+- Null hypothesis (H0) vs Alternative hypothesis (Ha).
+- Examples in business context: A/B testing, customer satisfaction analysis.
+t-test
+- A t-test compares the means of two groups.
+- Used to determine if the means of two sets of data are significantly different from each
+- Business example: Comparing the average sales before and after a marketing campaign
+ANOVA (Analysis of Variance)
+- ANOVA tests the hypothesis that the means of two or more populations are equal.
+- Applications include comparing the performance of different products or marketing str
+- Business example: Assessing the impact of different discounts on sales.
+Regression Analysis
+- Regression analysis estimates the relationship between variables.
+- Linear regression is the most simple and commonly used type of regression.
+- Business example: Predicting sales based on advertising spend.
+Summary
+- Covered the basics of hypothesis testing, t-tests, ANOVA, and regression analysis.
+- These statistical methods are fundamental in making data-driven business decisions.","What is the business example of using linear regression in the context of business analytics?
+",Predicting sales based on advertising spend.,course_material/module 2/lecture slides.pdf,sentence-transformers/all-MiniLM-L6-v2,0.8333333333333334,"The score is 0.83 because the majority of the output directly addresses the business examples of using linear regression in business analytics. However, the mention of additional resources like 'Module 2: Lecture Slides, Module 2: Transcript, Module 2: Tutorial' is not directly relevant to the question asked.",1.0,The score is 1.00 because there are no contradictions between the actual output and the retrieval context.,1.0,"The score is 1.00 because the retrieval context perfectly aligns with the input query, with no reasons for irrelevancy noted. Excellent match!"
+Q4,"Primer on Business Analytics with Python
+Module 6: Summary and Course Conclusion
+Introduction
+In this final module, we will review the key concepts covered in this course and discuss the upcoming exam.
+Main Concepts - Overview
+- Basic Data Manipulation and Descriptive Statistics
+- Basic Statistical Tests and Regression Analysis
+- Causal Inference
+- Supervised Machine Learning
+- Basic Text Analytics
+Main Concepts - Key Takeaways
+- Importance of data-driven decision-making in business
+- Various statistical and machine learning techniques for analyzing data
+- Real-world business applications for each technique
+Exam Information
+- Online Exam
+- Duration: 2 hours
+- Three tasks:
+  1. Code Interpretation
+  2. Essay-style Question
+  3. Coding Assignment
+Final Thoughts
+Thank you for participating in this course. Good luck on your exam and future endeavors in business analytics!","What are the three tasks in the online exam for the Business Analytics with Python course?
+","The three tasks in the online exam are Code Interpretation, Essay-style Question, and Coding Assignment.",course_material/module 6/lecture slides.pptx,sentence-transformers/all-MiniLM-L6-v2,0.875,"The score is 0.88 because the answer effectively addresses the three tasks in the online exam for the Business Analytics with Python course. However, it includes an irrelevant statement about 'Module 6: Lecture Slides,' which does not directly pertain to the question asked.",1.0,The score is 1.00 because there were no contradictions found between the actual output and the retrieval context.,1.0,"The score is 1.00 because the retrieval context perfectly matched the input, with no reasons for irrelevancy found. Great job!"
+Q5,"Primer on Business Analytics with Python
+Module 4: Supervised Machine Learning for Prediction and Classification
+Introduction
+
+- Supervised machine learning is a powerful tool for prediction and classification.- This module will explore commonly used algorithms and their applications in business.- Business applications include customer segmentation, fraud detection, and sales forecasting.
+Learning Objectives
+
+- Understand the basics of supervised machine learning.- Learn how to use Python libraries for implementing machine learning algorithms.
+Basics of Supervised Machine Learning
+
+- Supervised learning involves training a model on labeled data.- The goal is to make predictions or decisions based on new, unseen data.- Business example: Predicting customer churn based on historical data.
+Common Algorithms
+
+- Linear Regression for continuous outcomes- Logistic Regression for binary classification- Decision Trees and Random Forests for complex classifications- Business example: Using Random Forests for fraud detection.
+Summary
+
+- We covered the basics of supervised machine learning and its business applications.- Python libraries like scikit-learn make it easy to implement these algorithms.
+Basic Classification of Machine Learning Types
+
+- Supervised Learning: Labelled data, prediction or classification tasks.- Unsupervised Learning: Unlabelled data, clustering or association tasks.- Reinforcement Learning: Decision-making tasks, learn from rewards.
+Difference Between Classification and Prediction
+
+- Prediction: Estimating continuous values. E.g., sales forecasting.- Classification: Assigning data points to discrete classes. E.g., spam or not spam.
+Model Evaluation - Training and Test Sets
+
+- Split data into training and test sets for unbiased evaluation.- Train the model on the training set and evaluate it on the test set.
+Model Evaluation - Confusion Matrix","What are some common algorithms used in supervised machine learning?
+","Some common algorithms used in supervised machine learning are Linear Regression for continuous outcomes, Logistic Regression for binary classification, and Decision Trees and Random Forests for complex classifications.",course_material/module 4/lecture slides.pptx,sentence-transformers/all-MiniLM-L6-v2,0.9166666666666666,"The score is 0.92 because the answer is highly relevant and correctly identifies common algorithms used in supervised machine learning, but the reference to 'Module 4: Lecture Slides' is unnecessary and unrelated to the input question.",1.0,"The score is 1.00 because there are no contradictions present, indicating a perfect alignment between the actual output and the retrieval context.",1.0,The score is 1.00 because the retrieval context perfectly aligns with the input query regarding supervised machine learning algorithms. There are no listed reasons for irrelevancy.
+Q6,"[Slide 1: Title Slide]
+Hello again, everyone! Welcome back to our course on Business Analytics with Python. Today, we're moving on to Module 2. We'll be focusing on basic statistical tests, like the t-test and ANOVA, as well as regression analysis. So, let's dive right in and continue building on the foundation we laid in the last module.
+
+[Slide 2: Introduction]
+Before we jump into the details, let's discuss why statistical tests are important. In the world of business, we often have hypotheses or theories that we want to test. For example, is there a significant difference in sales between two different regions? Statistical tests help us answer questions like these with confidence.
+
+[Slide 3: What is a t-test?]
+So, what exactly is a t-test? In simple terms, a t-test allows us to compare the means of two groups to see if they are statistically different. This is incredibly useful in business. For example, it can help us understand if a marketing campaign was more effective in one region compared to another.
+
+[Slide 4: ANOVA]
+Now, let's talk about ANOVA, which stands for Analysis of Variance. ANOVA is used when you want to compare the means of more than two groups. It's like an extended version of the t-test and is particularly useful in product testing scenarios.
+
+[Slide 5: Regression Analysis]
+Last but not least, we'll discuss regression analysis. This allows us to understand the relationship between variables. For example, how does the price of a product affect its sales? Regression analysis can give us valuable insights into these kinds of relationships.
+
+[Slide 16: Summary]
+In summary, we've covered a lot today—t-tests, ANOVA, and regression analysis. These are powerful tools that can help you make informed business decisions based on data.
+
+[Slide 17: Q&A]
+We've come to the end of today's session. I hope you're leaving with a deeper understanding of statistical tests and their applications in business. If you have any questions, now's the time to ask.","What is the purpose of a t-test in business analytics?
+",A t-test allows us to compare the means of two groups to see if they are statistically different. This can help understand if a marketing campaign was more effective in one region compared to another.,course_material/module 2/transcript.txt,sentence-transformers/all-MiniLM-L6-v2,0.8,"The score is 0.80 because the explanation about the purpose of a t-test in business analytics is mostly accurate and relevant, but the mention of where to find more information isn't directly related to the core question.",1.0,The score is 1.00 because there are no contradictions identified between the actual output and the retrieval context.,1.0,"The score is 1.00 because the retrieval context perfectly aligns with the input query, without any noted irrelevancies."
+Q7,"# Primer on Business Analytics with Python
+## Module 6: Summary and Course Conclusion
+### Transcript for Imagined Lecture
+
+Hello everyone, and welcome to our final session in this course on Business Analytics with Python. It's been an incredible journey, and I'm thrilled to have had the chance to explore these fascinating topics with all of you.
+
+### Introduction
+So, what's on the agenda for today? We will revisit the central themes and key concepts that we have covered over the past modules. Our goal is to consolidate our learning and prepare ourselves for the upcoming exam. This is a crucial step in ensuring that we can apply our newly acquired skills in a business context.
+
+### Main Concepts - Overview
+Let's begin by taking a walk down memory lane. Do you remember our first module? We started with basic data manipulation and descriptive statistics. We learned how to clean, process, and summarize data, which is the foundation for any analytics project. Then, we moved on to statistical tests like t-tests and ANOVA, followed by regression analysis. We discussed how these tests can help us in making informed business decisions.
+
+### Main Concepts - Key Takeaways
+But what's the big picture here? Why did we learn all these techniques? Well, the reason is simple but profound. In today's competitive business environment, data-driven decision-making is not just an advantage; it's a necessity. The techniques you've learned in this course will enable you to analyze various types of data and generate insights that can inform and guide business strategies.","What are the main concepts covered in the Business Analytics with Python course?
+","The main concepts covered in the course are basic data manipulation and descriptive statistics, basic statistical tests and regression analysis, causal inference, supervised machine learning, and basic text analytics.",course_material/module 6/transcript.txt,sentence-transformers/all-MiniLM-L6-v2,0.9473684210526315,"The score is 0.95 because the answer is highly relevant and covers the main concepts of the course, but it includes an unnecessary reference to additional material that slightly detracts from the focus.",0.8235294117647058,"The score is 0.82 because the actual output incorrectly states that the topics 'Causal Inference', 'Supervised Machine Learning' and 'Basic Text Analytics' are covered in the Business Analytics with Python course, while these topics are not mentioned in the retrieval context.",1.0,"The score is 1.00 because there are no reasons given for irrelevancy, indicating a perfect match between the input and retrieval context."
+Q8,"Thank you for your participation, and I'm excited to continue this learning journey with you in the next module!","What is the speaker excited to continue in the next module?
+",The speaker is excited to continue the learning journey.,course_material/module 2/transcript.txt,sentence-transformers/all-MiniLM-L6-v2,0.25,The score is 0.25 because the response includes general information and redirects to other resources without addressing the specific question about the speaker's excitement.,1.0,The score is 1.00 because there are no contradictions detected between the 'actual output' and the 'retrieval context'. The output aligns perfectly with the given information.,1.0,"The score is 1.00 because the retrieval context perfectly aligns with the input, without any noted irrelevancies."
+Q9,"[Slide 1: Title Slide]
+Hello, everyone! Welcome to this course on Business Analytics with Python. Today, we're diving into Module 1, where we'll cover basic data manipulation and descriptive statistics. Are you ready to begin this exciting journey into the world of data analytics? Great! Grab your coffee or tea, and let's get started.
+
+[Slide 2: Introduction]
+Before we delve into the nitty-gritty of data analysis, let's take a moment to discuss why we're all here. Business Analytics isn't just a buzzword; it's a crucial skill set that enables us to make informed decisions based on data. In the business world, data drives everything from sales forecasts and customer segmentation to inventory management and beyond. So, what's our go-to tool for data manipulation and analysis? That's right, it's Python—a versatile programming language that's perfect for data analysis.
+
+[Slide 3: Why Python?]
+You might wonder, why Python? Well, Python is known for its simplicity and readability, not to mention a wide array of libraries for data manipulation, like Pandas and NumPy. This makes it a go-to language for analysts and data scientists alike.
+
+[Slide 4: Data Structures]
+Let's start by understanding the basic data structures in Python. We have lists, dictionaries, and tuples. Knowing how to use these effectively is like knowing your ABCs before you start to read.
+
+[Slide 5: Pandas Library]
+Now, meet Pandas, Python's data manipulation library. With Pandas, you can do everything from data cleaning to data transformation, and it works seamlessly with other Python libraries.
+
+[Slide 16: Summary]
+So, to wrap things up, what have we covered today? Quite a bit, actually! We've gone through basic data structures, delved deep into data manipulation using Pandas, explored descriptive statistics, and even created a bar chart. You're well on your way to becoming a data-savvy business analyst.","What is the go-to tool for data manipulation and analysis in business analytics?
+",The go-to tool for data manipulation and analysis in business analytics is Python.,course_material/module 1/transcript.txt,sentence-transformers/all-MiniLM-L6-v2,0.75,"The score is 0.75 because the main response correctly identifies the go-to tool for data manipulation and analysis in business analytics, but includes irrelevant information about module references which does not address the input question.",1.0,The score is 1.00 because there are no contradictions present in the actual output when compared to the retrieval context.,1.0,"The score is 1.00 because the retrieval context perfectly aligns with the input, displaying a clear understanding of the requested business analytics tool."
+Q10,"- Split data into training and test sets for unbiased evaluation.- Train the model on the training set and evaluate it on the test set.
+Model Evaluation - Confusion Matrix
+
+- A table that describes the performance of a classification model.- True Positives, True Negatives, False Positives, False Negatives.
+Model Evaluation - Metrics for Regression
+
+- Mean Absolute Error (MAE): Average of absolute differences between predicted and actual values.- Root Mean Square Error (RMSE): Square root of the average of squared differences between predicted and actual values.- Coefficient of Determination (R^2): Proportion of variance in the dependent variable that is predictable from the independent variables.","What is a confusion matrix in model evaluation?
+","A confusion matrix is a table that describes the performance of a classification model, including True Positives, True Negatives, False Positives, and False Negatives.",course_material/module 4/lecture slides.pptx,sentence-transformers/all-MiniLM-L6-v2,0.9,"The score is 0.90 because the explanation is mostly relevant and accurate, but it includes a reference to additional resources that does not directly explain what a confusion matrix is.",1.0,The score is 1.00 because there are no contradictions found between the actual output and the retrieval context.,1.0,"The score is 1.00 because the retrieval context perfectly aligns with the input about confusion matrix in model evaluation, with no reported irrelevancies."
+Q1,"- **AI Chatbot**: An AI chatbot is available for student queries. This chatbot is designed to answer frequently asked questions and provide clarifications on course materials, allowing students to get instant support.
+
+- **Attendance**: Attendance is not compulsory but is encouraged. While all lectures are recorded, attending in-person offers the benefit of immediate clarification of doubts and interactive learning.
+
+- **Development Environment**: Students can use the provided Jupyter Notebook servers or their own development environment. This flexibility ensures that students can work in an environment they are comfortable with, further enhancing the learning experience.","What is the purpose of the AI chatbot in the business analytics course?
+","The AI chatbot is designed to answer frequently asked questions and provide clarifications on course materials, allowing students to get instant support.",course_material/general/syllabus.md,sentence-transformers/all-MiniLM-L12-v2,0.75,"The score is 0.75 because the provided answer mostly explains the purpose of the AI chatbot in the business analytics course, but includes a reference to 'Module 5: Lecture Slides,' which is not directly relevant to the question.",0.3333333333333333,"The score is 0.33 due to the fact that the actual output wrongly stated that the purpose of the AI chatbot is to demonstrate an application of text analytics in a business context, whereas its actual purpose is to answer frequently asked questions and provide clarifications on course materials. Additionally, it inaccurately claimed that the course covers how to train intelligent chatbots to handle customer queries, which was not mentioned in the retrieval context.",1.0,The score is 1.00 because the retrieval context is directly relevant to the input with no stated irrelevancies.
+Q2,"Primer on Business Analytics with Python
+Module 5: Basic Text Analytics
+Introduction
+
+- Text analytics deals with deriving meaningful information from textual data.- In business, text analytics can be used for customer sentiment analysis, keyword extraction, and more.
+Learning Objectives
+
+- Learn basic techniques for text analytics.- Understand how to apply text analytics in a business context.
+Basic Techniques in Text Analytics
+
+- Text Preprocessing: Tokenization, stemming, etc.- Text Vectorization: Count vectorization, TF-IDF.- Sentiment Analysis: Determining the sentiment expressed in text.
+Applications in Business
+
+- Customer Feedback Analysis: Understanding customer sentiments.- Keyword Extraction: Identifying important topics in customer reviews.- Chatbot Training: Training intelligent chatbots to handle customer queries.
+Summary
+
+- We covered basic techniques in text analytics and their applications in business.- Tools like Python's NLTK and scikit-learn can be used for text analytics.
+Focus Areas in Text Analytics
+
+- Topic Identification: Understanding the main topics in a text.- Sentiment Analysis: Determining the sentiment expressed in text.- Keyword-based Analysis: Identifying important keywords for sentiment analysis.
+Advanced Techniques (Outside Scope)
+
+- Named Entity Recognition (NER): Identifying entities like names, locations, etc.- Text Summarization: Generating a summary of large texts.- These techniques are mentioned for awareness but are outside the course scope.","What are the basic techniques in text analytics covered in Module 5 of the Business Analytics with Python course?
+","The basic techniques in text analytics covered are Text Preprocessing, Text Vectorization, and Sentiment Analysis.",course_material/module 5/lecture slides.pptx,sentence-transformers/all-MiniLM-L12-v2,0.8888888888888888,"The score is 0.89 because the answer is mostly relevant and addresses the basic techniques in text analytics covered in Module 5. However, it includes additional resources that, while helpful, do not directly answer the question.",0.875,"The score is 0.88 because while the actual output asserts that text preprocessing is a crucial step in text analytics, this point is not directly mentioned in the retrieval context.",1.0,"The score is 1.00 because the retrieval context perfectly matches the input, with no reasons for irrelevancy provided."
+Q3,"Primer on Business Analytics 
+with Python
+Module 2: Basic Statistical Tests and 
+Regression Analysis
+Introduction
+- Statistical tests and regression analysis are vital tools in data science.
+- They are key in hypothesis testing, understanding relationships, and making prediction
+- This module will cover basic statistical tests like t-test, ANOVA, and introduce regressio
+Learning Objectives
+- Understand the basics of hypothesis testing.
+- Learn how to perform a t-test and ANOVA in Python.
+- Get introduced to linear regression and understand its applications.
+Hypothesis Testing
+- Hypothesis testing is a method for testing a claim or hypothesis about a parameter in a
+- Null hypothesis (H0) vs Alternative hypothesis (Ha).
+- Examples in business context: A/B testing, customer satisfaction analysis.
+t-test
+- A t-test compares the means of two groups.
+- Used to determine if the means of two sets of data are significantly different from each
+- Business example: Comparing the average sales before and after a marketing campaign
+ANOVA (Analysis of Variance)
+- ANOVA tests the hypothesis that the means of two or more populations are equal.
+- Applications include comparing the performance of different products or marketing str
+- Business example: Assessing the impact of different discounts on sales.
+Regression Analysis
+- Regression analysis estimates the relationship between variables.
+- Linear regression is the most simple and commonly used type of regression.
+- Business example: Predicting sales based on advertising spend.
+Summary
+- Covered the basics of hypothesis testing, t-tests, ANOVA, and regression analysis.
+- These statistical methods are fundamental in making data-driven business decisions.","What is the business example of using linear regression in the context of business analytics?
+",Predicting sales based on advertising spend.,course_material/module 2/lecture slides.pdf,sentence-transformers/all-MiniLM-L12-v2,0.75,"The score is 0.75 because the explanation provides a good example of using linear regression in business analytics, but the additional statement about 'Module 2: Lecture Slides' is not directly relevant to the question.",1.0,The score is 1.00 because there are no contradictions between the actual output and the retrieval context.,1.0,"The score is 1.00 because the retrieval context perfectly matches the input, providing relevant information without any detected irrelevancies."
+Q4,"Primer on Business Analytics with Python
+Module 6: Summary and Course Conclusion
+Introduction
+In this final module, we will review the key concepts covered in this course and discuss the upcoming exam.
+Main Concepts - Overview
+- Basic Data Manipulation and Descriptive Statistics
+- Basic Statistical Tests and Regression Analysis
+- Causal Inference
+- Supervised Machine Learning
+- Basic Text Analytics
+Main Concepts - Key Takeaways
+- Importance of data-driven decision-making in business
+- Various statistical and machine learning techniques for analyzing data
+- Real-world business applications for each technique
+Exam Information
+- Online Exam
+- Duration: 2 hours
+- Three tasks:
+  1. Code Interpretation
+  2. Essay-style Question
+  3. Coding Assignment
+Final Thoughts
+Thank you for participating in this course. Good luck on your exam and future endeavors in business analytics!","What are the three tasks in the online exam for the Business Analytics with Python course?
+","The three tasks in the online exam are Code Interpretation, Essay-style Question, and Coding Assignment.",course_material/module 6/lecture slides.pptx,sentence-transformers/all-MiniLM-L12-v2,0.8,"The score is 0.80 because the answer addresses the three tasks in the online exam for the Business Analytics with Python course, but includes an additional reference that is not directly relevant to the question.",0.875,"The score is 0.88 because the actual output incorrectly states that additional details about the online exam can be found in Module 6: Transcript - Exam Information, even though the retrieval context does not mention this.",1.0,"The score is 1.00 because the retrieval context perfectly matched the input, with no reasons for irrelevancy provided."
+Q5,"Primer on Business Analytics with Python
+Module 4: Supervised Machine Learning for Prediction and Classification
+Introduction
+
+- Supervised machine learning is a powerful tool for prediction and classification.- This module will explore commonly used algorithms and their applications in business.- Business applications include customer segmentation, fraud detection, and sales forecasting.
+Learning Objectives
+
+- Understand the basics of supervised machine learning.- Learn how to use Python libraries for implementing machine learning algorithms.
+Basics of Supervised Machine Learning
+
+- Supervised learning involves training a model on labeled data.- The goal is to make predictions or decisions based on new, unseen data.- Business example: Predicting customer churn based on historical data.
+Common Algorithms
+
+- Linear Regression for continuous outcomes- Logistic Regression for binary classification- Decision Trees and Random Forests for complex classifications- Business example: Using Random Forests for fraud detection.
+Summary
+
+- We covered the basics of supervised machine learning and its business applications.- Python libraries like scikit-learn make it easy to implement these algorithms.
+Basic Classification of Machine Learning Types
+
+- Supervised Learning: Labelled data, prediction or classification tasks.- Unsupervised Learning: Unlabelled data, clustering or association tasks.- Reinforcement Learning: Decision-making tasks, learn from rewards.
+Difference Between Classification and Prediction
+
+- Prediction: Estimating continuous values. E.g., sales forecasting.- Classification: Assigning data points to discrete classes. E.g., spam or not spam.
+Model Evaluation - Training and Test Sets
+
+- Split data into training and test sets for unbiased evaluation.- Train the model on the training set and evaluate it on the test set.
+Model Evaluation - Confusion Matrix","What are some common algorithms used in supervised machine learning?
+","Some common algorithms used in supervised machine learning are Linear Regression for continuous outcomes, Logistic Regression for binary classification, and Decision Trees and Random Forests for complex classifications.",course_material/module 4/lecture slides.pptx,sentence-transformers/all-MiniLM-L12-v2,0.5,"The score is 0.50 because the output includes relevant information about supervised machine learning algorithms, but also contains several irrelevant examples and references that do not directly answer the question.",1.0,The score is 1.00 because there are no contradictions between the actual output and the retrieval context. Great job!,1.0,The score is 1.00 because the retrieval context is perfectly aligned with the input. Great job!
+Q6,"[Slide 1: Title Slide]
+Hello again, everyone! Welcome back to our course on Business Analytics with Python. Today, we're moving on to Module 2. We'll be focusing on basic statistical tests, like the t-test and ANOVA, as well as regression analysis. So, let's dive right in and continue building on the foundation we laid in the last module.
+
+[Slide 2: Introduction]
+Before we jump into the details, let's discuss why statistical tests are important. In the world of business, we often have hypotheses or theories that we want to test. For example, is there a significant difference in sales between two different regions? Statistical tests help us answer questions like these with confidence.
+
+[Slide 3: What is a t-test?]
+So, what exactly is a t-test? In simple terms, a t-test allows us to compare the means of two groups to see if they are statistically different. This is incredibly useful in business. For example, it can help us understand if a marketing campaign was more effective in one region compared to another.
+
+[Slide 4: ANOVA]
+Now, let's talk about ANOVA, which stands for Analysis of Variance. ANOVA is used when you want to compare the means of more than two groups. It's like an extended version of the t-test and is particularly useful in product testing scenarios.
+
+[Slide 5: Regression Analysis]
+Last but not least, we'll discuss regression analysis. This allows us to understand the relationship between variables. For example, how does the price of a product affect its sales? Regression analysis can give us valuable insights into these kinds of relationships.
+
+[Slide 16: Summary]
+In summary, we've covered a lot today—t-tests, ANOVA, and regression analysis. These are powerful tools that can help you make informed business decisions based on data.
+
+[Slide 17: Q&A]
+We've come to the end of today's session. I hope you're leaving with a deeper understanding of statistical tests and their applications in business. If you have any questions, now's the time to ask.","What is the purpose of a t-test in business analytics?
+",A t-test allows us to compare the means of two groups to see if they are statistically different. This can help understand if a marketing campaign was more effective in one region compared to another.,course_material/module 2/transcript.txt,sentence-transformers/all-MiniLM-L12-v2,1.0,The score is 1.00 because the answer is perfectly relevant and directly addresses the purpose of a t-test in business analytics. Great job!,1.0,The score is 1.00 because there are no contradictions between the actual output and the retrieval context.,1.0,"The score is 1.00 because the retrieval context perfectly matched the input, with no reasons for irrelevancy."
+Q7,"# Primer on Business Analytics with Python
+## Module 6: Summary and Course Conclusion
+### Transcript for Imagined Lecture
+
+Hello everyone, and welcome to our final session in this course on Business Analytics with Python. It's been an incredible journey, and I'm thrilled to have had the chance to explore these fascinating topics with all of you.
+
+### Introduction
+So, what's on the agenda for today? We will revisit the central themes and key concepts that we have covered over the past modules. Our goal is to consolidate our learning and prepare ourselves for the upcoming exam. This is a crucial step in ensuring that we can apply our newly acquired skills in a business context.
+
+### Main Concepts - Overview
+Let's begin by taking a walk down memory lane. Do you remember our first module? We started with basic data manipulation and descriptive statistics. We learned how to clean, process, and summarize data, which is the foundation for any analytics project. Then, we moved on to statistical tests like t-tests and ANOVA, followed by regression analysis. We discussed how these tests can help us in making informed business decisions.
+
+### Main Concepts - Key Takeaways
+But what's the big picture here? Why did we learn all these techniques? Well, the reason is simple but profound. In today's competitive business environment, data-driven decision-making is not just an advantage; it's a necessity. The techniques you've learned in this course will enable you to analyze various types of data and generate insights that can inform and guide business strategies.","What are the main concepts covered in the Business Analytics with Python course?
+","The main concepts covered in the course are basic data manipulation and descriptive statistics, basic statistical tests and regression analysis, causal inference, supervised machine learning, and basic text analytics.",course_material/module 6/transcript.txt,sentence-transformers/all-MiniLM-L12-v2,0.9090909090909091,"The score is 0.91 because the response effectively addresses the main concepts covered in the course. However, it includes an irrelevant statement providing additional references that slightly detracts from the direct answer.",0.8,"The score is 0.80 because the actual output incorrectly asserts that the 'Business Analytics with Python' course covers the concept of Causal Inference, Supervised Machine Learning, and Basic Text Analytics. These specifics are not confirmed by the retrieval context.",1.0,"The score is 1.00 because the retrieval context perfectly aligns with the input, covering all main concepts of Business Analytics with Python course."
+Q8,"Thank you for your participation, and I'm excited to continue this learning journey with you in the next module!","What is the speaker excited to continue in the next module?
+",The speaker is excited to continue the learning journey.,course_material/module 2/transcript.txt,sentence-transformers/all-MiniLM-L12-v2,0.75,"The score is 0.75 because the output provides useful information but includes a statement about where more information can be found, which doesn’t directly address what the speaker is excited to continue in the next module.",1.0,The score is 1.00 because there are no contradictions between the actual output and the retrieval context. Great job!,1.0,The score is 1.00 because the input is perfectly relevant and there are no provided reasons for irrelevancy.
+Q9,"[Slide 1: Title Slide]
+Hello, everyone! Welcome to this course on Business Analytics with Python. Today, we're diving into Module 1, where we'll cover basic data manipulation and descriptive statistics. Are you ready to begin this exciting journey into the world of data analytics? Great! Grab your coffee or tea, and let's get started.
+
+[Slide 2: Introduction]
+Before we delve into the nitty-gritty of data analysis, let's take a moment to discuss why we're all here. Business Analytics isn't just a buzzword; it's a crucial skill set that enables us to make informed decisions based on data. In the business world, data drives everything from sales forecasts and customer segmentation to inventory management and beyond. So, what's our go-to tool for data manipulation and analysis? That's right, it's Python—a versatile programming language that's perfect for data analysis.
+
+[Slide 3: Why Python?]
+You might wonder, why Python? Well, Python is known for its simplicity and readability, not to mention a wide array of libraries for data manipulation, like Pandas and NumPy. This makes it a go-to language for analysts and data scientists alike.
+
+[Slide 4: Data Structures]
+Let's start by understanding the basic data structures in Python. We have lists, dictionaries, and tuples. Knowing how to use these effectively is like knowing your ABCs before you start to read.
+
+[Slide 5: Pandas Library]
+Now, meet Pandas, Python's data manipulation library. With Pandas, you can do everything from data cleaning to data transformation, and it works seamlessly with other Python libraries.
+
+[Slide 16: Summary]
+So, to wrap things up, what have we covered today? Quite a bit, actually! We've gone through basic data structures, delved deep into data manipulation using Pandas, explored descriptive statistics, and even created a bar chart. You're well on your way to becoming a data-savvy business analyst.","What is the go-to tool for data manipulation and analysis in business analytics?
+",The go-to tool for data manipulation and analysis in business analytics is Python.,course_material/module 1/transcript.txt,sentence-transformers/all-MiniLM-L12-v2,0.75,"The score is 0.75 because the response provides relevant information about the tool used for data manipulation and analysis in business analytics, but it includes an irrelevant reference to course materials that does not directly address the question.",1.0,The score is 1.00 because there are no contradictions between the actual output and the retrieval context. Great job!,1.0,"The score is 1.00 because the retrieval context perfectly matches the input query, without any irrelevant information."
+Q10,"- Split data into training and test sets for unbiased evaluation.- Train the model on the training set and evaluate it on the test set.
+Model Evaluation - Confusion Matrix
+
+- A table that describes the performance of a classification model.- True Positives, True Negatives, False Positives, False Negatives.
+Model Evaluation - Metrics for Regression
+
+- Mean Absolute Error (MAE): Average of absolute differences between predicted and actual values.- Root Mean Square Error (RMSE): Square root of the average of squared differences between predicted and actual values.- Coefficient of Determination (R^2): Proportion of variance in the dependent variable that is predictable from the independent variables.","What is a confusion matrix in model evaluation?
+","A confusion matrix is a table that describes the performance of a classification model, including True Positives, True Negatives, False Positives, and False Negatives.",course_material/module 4/lecture slides.pptx,sentence-transformers/all-MiniLM-L12-v2,0.8888888888888888,"The score is 0.89 because the answer is mostly relevant and accurately describes what a confusion matrix is, but the reference to additional resources is not directly related to explaining the concept.",1.0,The score is 1.00 because there are no contradictions present. The actual output aligns perfectly with the information given in the retrieval context.,1.0,The score is 1.00 because the retrieval context perfectly aligns with the input about confusion matrix in model evaluation. Great job!
+Q1,"- **AI Chatbot**: An AI chatbot is available for student queries. This chatbot is designed to answer frequently asked questions and provide clarifications on course materials, allowing students to get instant support.
+
+- **Attendance**: Attendance is not compulsory but is encouraged. While all lectures are recorded, attending in-person offers the benefit of immediate clarification of doubts and interactive learning.
+
+- **Development Environment**: Students can use the provided Jupyter Notebook servers or their own development environment. This flexibility ensures that students can work in an environment they are comfortable with, further enhancing the learning experience.","What is the purpose of the AI chatbot in the business analytics course?
+","The AI chatbot is designed to answer frequently asked questions and provide clarifications on course materials, allowing students to get instant support.",course_material/general/syllabus.md,TaylorAI/gte-tiny,0.6666666666666666,"The score is 0.67 because the output provides relevant information about the AI chatbot's purpose in the business analytics course, but includes an irrelevant statement about the syllabus.",1.0,The score is 1.00 because there are no contradictions between the retrieval context and the actual output.,1.0,"The score is 1.00 because the retrieval context perfectly matches the input, indicating high relevancy and accuracy."
+Q2,"Primer on Business Analytics with Python
+Module 5: Basic Text Analytics
+Introduction
+
+- Text analytics deals with deriving meaningful information from textual data.- In business, text analytics can be used for customer sentiment analysis, keyword extraction, and more.
+Learning Objectives
+
+- Learn basic techniques for text analytics.- Understand how to apply text analytics in a business context.
+Basic Techniques in Text Analytics
+
+- Text Preprocessing: Tokenization, stemming, etc.- Text Vectorization: Count vectorization, TF-IDF.- Sentiment Analysis: Determining the sentiment expressed in text.
+Applications in Business
+
+- Customer Feedback Analysis: Understanding customer sentiments.- Keyword Extraction: Identifying important topics in customer reviews.- Chatbot Training: Training intelligent chatbots to handle customer queries.
+Summary
+
+- We covered basic techniques in text analytics and their applications in business.- Tools like Python's NLTK and scikit-learn can be used for text analytics.
+Focus Areas in Text Analytics
+
+- Topic Identification: Understanding the main topics in a text.- Sentiment Analysis: Determining the sentiment expressed in text.- Keyword-based Analysis: Identifying important keywords for sentiment analysis.
+Advanced Techniques (Outside Scope)
+
+- Named Entity Recognition (NER): Identifying entities like names, locations, etc.- Text Summarization: Generating a summary of large texts.- These techniques are mentioned for awareness but are outside the course scope.","What are the basic techniques in text analytics covered in Module 5 of the Business Analytics with Python course?
+","The basic techniques in text analytics covered are Text Preprocessing, Text Vectorization, and Sentiment Analysis.",course_material/module 5/lecture slides.pptx,TaylorAI/gte-tiny,1.0,The score is 1.00 because the output is perfectly relevant and addresses the question without any irrelevant statements. Great job!,0.75,"The score is 0.75 because while the retrieval context does provide specific details about the techniques for text analytics, the actual output contradicts this by incorrectly stating that such details are not included in the course materials for Module 5 on Basic Text Analytics.",1.0,"The score is 1.00 because there are no listed reasons for irrelevancy, indicating a perfect match between the input and the retrieval context. Keep up the great work!"
+Q3,"Primer on Business Analytics 
+with Python
+Module 2: Basic Statistical Tests and 
+Regression Analysis
+Introduction
+- Statistical tests and regression analysis are vital tools in data science.
+- They are key in hypothesis testing, understanding relationships, and making prediction
+- This module will cover basic statistical tests like t-test, ANOVA, and introduce regressio
+Learning Objectives
+- Understand the basics of hypothesis testing.
+- Learn how to perform a t-test and ANOVA in Python.
+- Get introduced to linear regression and understand its applications.
+Hypothesis Testing
+- Hypothesis testing is a method for testing a claim or hypothesis about a parameter in a
+- Null hypothesis (H0) vs Alternative hypothesis (Ha).
+- Examples in business context: A/B testing, customer satisfaction analysis.
+t-test
+- A t-test compares the means of two groups.
+- Used to determine if the means of two sets of data are significantly different from each
+- Business example: Comparing the average sales before and after a marketing campaign
+ANOVA (Analysis of Variance)
+- ANOVA tests the hypothesis that the means of two or more populations are equal.
+- Applications include comparing the performance of different products or marketing str
+- Business example: Assessing the impact of different discounts on sales.
+Regression Analysis
+- Regression analysis estimates the relationship between variables.
+- Linear regression is the most simple and commonly used type of regression.
+- Business example: Predicting sales based on advertising spend.
+Summary
+- Covered the basics of hypothesis testing, t-tests, ANOVA, and regression analysis.
+- These statistical methods are fundamental in making data-driven business decisions.","What is the business example of using linear regression in the context of business analytics?
+",Predicting sales based on advertising spend.,course_material/module 2/lecture slides.pdf,TaylorAI/gte-tiny,0.8333333333333334,"The score is 0.83 because the majority of the response is relevant and provides a clear business example of using linear regression in the context of business analytics. However, it includes an irrelevant reference to an external resource, which slightly detracts from its overall relevance.",1.0,The score is 1.00 because there are no contradictions present between the retrieval context and the actual output.,1.0,"The score is 1.00 because the retrieval context perfectly matched the input, with no irrelevant information identified."
+Q4,"Primer on Business Analytics with Python
+Module 6: Summary and Course Conclusion
+Introduction
+In this final module, we will review the key concepts covered in this course and discuss the upcoming exam.
+Main Concepts - Overview
+- Basic Data Manipulation and Descriptive Statistics
+- Basic Statistical Tests and Regression Analysis
+- Causal Inference
+- Supervised Machine Learning
+- Basic Text Analytics
+Main Concepts - Key Takeaways
+- Importance of data-driven decision-making in business
+- Various statistical and machine learning techniques for analyzing data
+- Real-world business applications for each technique
+Exam Information
+- Online Exam
+- Duration: 2 hours
+- Three tasks:
+  1. Code Interpretation
+  2. Essay-style Question
+  3. Coding Assignment
+Final Thoughts
+Thank you for participating in this course. Good luck on your exam and future endeavors in business analytics!","What are the three tasks in the online exam for the Business Analytics with Python course?
+","The three tasks in the online exam are Code Interpretation, Essay-style Question, and Coding Assignment.",course_material/module 6/lecture slides.pptx,TaylorAI/gte-tiny,0.6666666666666666,"The score is 0.67 because the 'I'm sorry,' statement does not provide any relevant information regarding the three tasks in the online exam.",0.5,"The score is 0.50 because the actual output incorrectly claimed that the course materials do not provide specific information about the tasks in the online exam, contradicting the retrieval context which clearly mentions that the exam consists of three tasks: Code Interpretation, Essay-style Question, and Coding Assignment.",1.0,"The score is 1.00 because the retrieval context perfectly aligns with the input, providing relevant information about the tasks in the online exam for the Business Analytics with Python course."
+Q5,"Primer on Business Analytics with Python
+Module 4: Supervised Machine Learning for Prediction and Classification
+Introduction
+
+- Supervised machine learning is a powerful tool for prediction and classification.- This module will explore commonly used algorithms and their applications in business.- Business applications include customer segmentation, fraud detection, and sales forecasting.
+Learning Objectives
+
+- Understand the basics of supervised machine learning.- Learn how to use Python libraries for implementing machine learning algorithms.
+Basics of Supervised Machine Learning
+
+- Supervised learning involves training a model on labeled data.- The goal is to make predictions or decisions based on new, unseen data.- Business example: Predicting customer churn based on historical data.
+Common Algorithms
+
+- Linear Regression for continuous outcomes- Logistic Regression for binary classification- Decision Trees and Random Forests for complex classifications- Business example: Using Random Forests for fraud detection.
+Summary
+
+- We covered the basics of supervised machine learning and its business applications.- Python libraries like scikit-learn make it easy to implement these algorithms.
+Basic Classification of Machine Learning Types
+
+- Supervised Learning: Labelled data, prediction or classification tasks.- Unsupervised Learning: Unlabelled data, clustering or association tasks.- Reinforcement Learning: Decision-making tasks, learn from rewards.
+Difference Between Classification and Prediction
+
+- Prediction: Estimating continuous values. E.g., sales forecasting.- Classification: Assigning data points to discrete classes. E.g., spam or not spam.
+Model Evaluation - Training and Test Sets
+
+- Split data into training and test sets for unbiased evaluation.- Train the model on the training set and evaluate it on the test set.
+Model Evaluation - Confusion Matrix","What are some common algorithms used in supervised machine learning?
+","Some common algorithms used in supervised machine learning are Linear Regression for continuous outcomes, Logistic Regression for binary classification, and Decision Trees and Random Forests for complex classifications.",course_material/module 4/lecture slides.pptx,TaylorAI/gte-tiny,0.2,"The score is 0.20 because the actual output did not provide specific information on common algorithms used in supervised machine learning and included statements irrelevant to the question, such as referring to course materials and suggesting seeking further clarification from teachers.",0.8333333333333334,"The score is 0.83 because the actual output falsely claims that the course materials did not discuss the different algorithms used in supervised machine learning, however, the retrieval context clearly mentions algorithms such as Linear Regression, Logistic Regression, Decision Trees, and Random Forests.",1.0,The score is 1.00 because the retrieval context perfectly matches the input question regarding common algorithms used in supervised machine learning.
+Q6,"[Slide 1: Title Slide]
+Hello again, everyone! Welcome back to our course on Business Analytics with Python. Today, we're moving on to Module 2. We'll be focusing on basic statistical tests, like the t-test and ANOVA, as well as regression analysis. So, let's dive right in and continue building on the foundation we laid in the last module.
+
+[Slide 2: Introduction]
+Before we jump into the details, let's discuss why statistical tests are important. In the world of business, we often have hypotheses or theories that we want to test. For example, is there a significant difference in sales between two different regions? Statistical tests help us answer questions like these with confidence.
+
+[Slide 3: What is a t-test?]
+So, what exactly is a t-test? In simple terms, a t-test allows us to compare the means of two groups to see if they are statistically different. This is incredibly useful in business. For example, it can help us understand if a marketing campaign was more effective in one region compared to another.
+
+[Slide 4: ANOVA]
+Now, let's talk about ANOVA, which stands for Analysis of Variance. ANOVA is used when you want to compare the means of more than two groups. It's like an extended version of the t-test and is particularly useful in product testing scenarios.
+
+[Slide 5: Regression Analysis]
+Last but not least, we'll discuss regression analysis. This allows us to understand the relationship between variables. For example, how does the price of a product affect its sales? Regression analysis can give us valuable insights into these kinds of relationships.
+
+[Slide 16: Summary]
+In summary, we've covered a lot today—t-tests, ANOVA, and regression analysis. These are powerful tools that can help you make informed business decisions based on data.
+
+[Slide 17: Q&A]
+We've come to the end of today's session. I hope you're leaving with a deeper understanding of statistical tests and their applications in business. If you have any questions, now's the time to ask.","What is the purpose of a t-test in business analytics?
+",A t-test allows us to compare the means of two groups to see if they are statistically different. This can help understand if a marketing campaign was more effective in one region compared to another.,course_material/module 2/transcript.txt,TaylorAI/gte-tiny,0.0,The score is 0.00 because the actual output contains multiple irrelevant statements and fails to address the input question about the purpose of a t-test in business analytics.,0.6666666666666666,"The score is 0.67 because there is a contradiction in the assertion that the course materials do not include the topic of t-tests, while the retrieval context clearly indicates that t-tests are indeed part of the course.",1.0,"The score is 1.00 because the retrieval context perfectly aligns with the input, with no reasons given for irrelevancy."
+Q7,"# Primer on Business Analytics with Python
+## Module 6: Summary and Course Conclusion
+### Transcript for Imagined Lecture
+
+Hello everyone, and welcome to our final session in this course on Business Analytics with Python. It's been an incredible journey, and I'm thrilled to have had the chance to explore these fascinating topics with all of you.
+
+### Introduction
+So, what's on the agenda for today? We will revisit the central themes and key concepts that we have covered over the past modules. Our goal is to consolidate our learning and prepare ourselves for the upcoming exam. This is a crucial step in ensuring that we can apply our newly acquired skills in a business context.
+
+### Main Concepts - Overview
+Let's begin by taking a walk down memory lane. Do you remember our first module? We started with basic data manipulation and descriptive statistics. We learned how to clean, process, and summarize data, which is the foundation for any analytics project. Then, we moved on to statistical tests like t-tests and ANOVA, followed by regression analysis. We discussed how these tests can help us in making informed business decisions.
+
+### Main Concepts - Key Takeaways
+But what's the big picture here? Why did we learn all these techniques? Well, the reason is simple but profound. In today's competitive business environment, data-driven decision-making is not just an advantage; it's a necessity. The techniques you've learned in this course will enable you to analyze various types of data and generate insights that can inform and guide business strategies.","What are the main concepts covered in the Business Analytics with Python course?
+","The main concepts covered in the course are basic data manipulation and descriptive statistics, basic statistical tests and regression analysis, causal inference, supervised machine learning, and basic text analytics.",course_material/module 6/transcript.txt,TaylorAI/gte-tiny,0.9166666666666666,"The score is 0.92 because the answer is mostly relevant and provides valuable information about the main concepts covered in the course. However, it includes an irrelevant statement about the general syllabus which does not directly address the question.",1.0,The score is 1.00 because there are no contradictions between the actual output and the retrieval context.,1.0,"The score is 1.00 because the retrieval context perfectly matches the input query, with no reasons for irrelevancy provided."
+Q8,"Thank you for your participation, and I'm excited to continue this learning journey with you in the next module!","What is the speaker excited to continue in the next module?
+",The speaker is excited to continue the learning journey.,course_material/module 2/transcript.txt,TaylorAI/gte-tiny,0.0,"The score is 0.00 because the actual output contains statements that do not address what the speaker is excited to continue in the next module, making them irrelevant to the input question.",1.0,The score is 1.00 because there are no contradictions between the actual output and the retrieval context. The output is fully aligned with the information provided.,1.0,"The score is 1.00 because the input is perfectly aligned with the retrieval context, showing excellent relevancy."
+Q9,"[Slide 1: Title Slide]
+Hello, everyone! Welcome to this course on Business Analytics with Python. Today, we're diving into Module 1, where we'll cover basic data manipulation and descriptive statistics. Are you ready to begin this exciting journey into the world of data analytics? Great! Grab your coffee or tea, and let's get started.
+
+[Slide 2: Introduction]
+Before we delve into the nitty-gritty of data analysis, let's take a moment to discuss why we're all here. Business Analytics isn't just a buzzword; it's a crucial skill set that enables us to make informed decisions based on data. In the business world, data drives everything from sales forecasts and customer segmentation to inventory management and beyond. So, what's our go-to tool for data manipulation and analysis? That's right, it's Python—a versatile programming language that's perfect for data analysis.
+
+[Slide 3: Why Python?]
+You might wonder, why Python? Well, Python is known for its simplicity and readability, not to mention a wide array of libraries for data manipulation, like Pandas and NumPy. This makes it a go-to language for analysts and data scientists alike.
+
+[Slide 4: Data Structures]
+Let's start by understanding the basic data structures in Python. We have lists, dictionaries, and tuples. Knowing how to use these effectively is like knowing your ABCs before you start to read.
+
+[Slide 5: Pandas Library]
+Now, meet Pandas, Python's data manipulation library. With Pandas, you can do everything from data cleaning to data transformation, and it works seamlessly with other Python libraries.
+
+[Slide 16: Summary]
+So, to wrap things up, what have we covered today? Quite a bit, actually! We've gone through basic data structures, delved deep into data manipulation using Pandas, explored descriptive statistics, and even created a bar chart. You're well on your way to becoming a data-savvy business analyst.","What is the go-to tool for data manipulation and analysis in business analytics?
+",The go-to tool for data manipulation and analysis in business analytics is Python.,course_material/module 1/transcript.txt,TaylorAI/gte-tiny,0.0,"The score is 0.00 because the provided statements do not directly address the question about the go-to tool for data manipulation and analysis in business analytics, instead mentioning course materials and an inability to answer.",0.5,The score is 0.50 because the actual output seems to contradict the retrieval context. It does not accurately reflect that the course is about data manipulation and analysis in business analytics using Python and its libraries like Pandas and NumPy.,1.0,"The score is 1.00 because the retrieval context perfectly matches the input, with no reasons for irrelevancy provided."
+Q10,"- Split data into training and test sets for unbiased evaluation.- Train the model on the training set and evaluate it on the test set.
+Model Evaluation - Confusion Matrix
+
+- A table that describes the performance of a classification model.- True Positives, True Negatives, False Positives, False Negatives.
+Model Evaluation - Metrics for Regression
+
+- Mean Absolute Error (MAE): Average of absolute differences between predicted and actual values.- Root Mean Square Error (RMSE): Square root of the average of squared differences between predicted and actual values.- Coefficient of Determination (R^2): Proportion of variance in the dependent variable that is predictable from the independent variables.","What is a confusion matrix in model evaluation?
+","A confusion matrix is a table that describes the performance of a classification model, including True Positives, True Negatives, False Positives, and False Negatives.",course_material/module 4/lecture slides.pptx,TaylorAI/gte-tiny,0.8888888888888888,"The score is 0.89 because the explanation of a confusion matrix is mostly clear and relevant, but the additional reference to 'Module 4: Transcript' is not pertinent to the immediate question.",1.0,The score is 1.00 because there are no contradictions between the actual output and the retrieval context. The output perfectly aligns with the information provided.,1.0,The score is 1.00 because the retrieval context perfectly aligns with the input query about the confusion matrix in model evaluation. There are no mentioned discrepancies or irrelevancies.
